@@ -57,7 +57,8 @@ export const workExperience: WorkExperience[] = [
 export const projects: Project[] = [
   {
     title: "AI Interview",
-    description: "AI voice interviews, open source and self-hosted.",
+    description:
+      "Open-source AI voice interview platform. Paste a job description, send candidates a link, and get back a full scorecard automatically.",
     techStack: ["Next.js", "Tailwind CSS", "shadcn/ui", "better-auth", "AI", "Voice AI"],
     githubUrl: "https://github.com/brijeshmarch16/ai-interview",
     liveUrl: "https://ai-interview.brijeshkumaryadav.com",
