@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: siteMetadata.title }],
+      images: [{ url: `${siteMetadata.baseUrl}og.png`, width: 1200, height: 630, alt: siteMetadata.title }],
     },
   });
 }
