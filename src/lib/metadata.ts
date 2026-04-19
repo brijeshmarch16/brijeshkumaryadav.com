@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { siteMetadata } from "./data";
+import type { Metadata } from "next"
+import { siteMetadata } from "./data"
 
-export const baseUrl = siteMetadata.baseUrl;
+export const baseUrl = siteMetadata.baseUrl
 
 export function createMetadata(override: Metadata): Metadata {
   return {
@@ -25,9 +25,9 @@ export function createMetadata(override: Metadata): Metadata {
     alternates: {
       ...override.alternates,
     },
-  };
+  }
 }
 
 export function createCanonical(path: string): string {
-  return new URL(path, baseUrl).toString();
+  return new URL(path, baseUrl).toString()
 }

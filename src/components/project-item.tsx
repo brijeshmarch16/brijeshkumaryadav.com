@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import Image from "next/image";
+import Image from "next/image"
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import type { Project } from "@/types";
+} from "@/components/ui/dialog"
+import type { Project } from "@/types"
 
 export function ProjectItem({ project }: { project: Project }) {
   const title = project.liveUrl ? (
@@ -16,13 +16,13 @@ export function ProjectItem({ project }: { project: Project }) {
       href={project.liveUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-medium text-sm underline underline-offset-2"
+      className="text-sm font-medium underline underline-offset-2"
     >
       {project.title}
     </a>
   ) : project.imageUrl ? (
     <Dialog>
-      <DialogTrigger className="cursor-pointer font-medium text-sm underline underline-offset-2">
+      <DialogTrigger className="cursor-pointer text-sm font-medium underline underline-offset-2">
         {project.title}
       </DialogTrigger>
       <DialogContent className="sm:max-w-3xl">
@@ -40,13 +40,16 @@ export function ProjectItem({ project }: { project: Project }) {
       </DialogContent>
     </Dialog>
   ) : (
-    <span className="font-medium text-sm">{project.title}</span>
-  );
+    <span className="text-sm font-medium">{project.title}</span>
+  )
 
   return (
     <li>
       {title}
-      <small className="text-muted-foreground text-sm"> — {project.description}</small>
+      <small className="text-sm text-muted-foreground">
+        {" "}
+        — {project.description}
+      </small>
     </li>
-  );
+  )
 }

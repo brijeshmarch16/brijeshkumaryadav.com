@@ -1,10 +1,10 @@
-import type { MetadataRoute } from "next";
-import { createCanonical } from "@/lib/metadata";
+import type { MetadataRoute } from "next"
+import { createCanonical } from "@/lib/metadata"
 
-export const revalidate = false;
+export const revalidate = false
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const url = (path: string): string => createCanonical(path);
+  const url = (path: string): string => createCanonical(path)
 
   return [
     {
@@ -12,5 +12,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 1,
     },
-  ];
+  ]
 }

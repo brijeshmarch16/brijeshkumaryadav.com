@@ -1,24 +1,32 @@
-import type { AboutMe, Project, SiteMetadata, Skill, SocialMedia, WorkExperience } from "@/types";
+import type {
+  AboutMe,
+  Project,
+  SiteMetadata,
+  Skill,
+  SocialMedia,
+  WorkExperience,
+} from "@/types"
 
 function createBaseUrl(): URL {
   return process.env.NODE_ENV === "development"
     ? new URL("http://localhost:3000")
-    : new URL("https://brijeshkumaryadav.com/");
+    : new URL("https://brijeshkumaryadav.com/")
 }
 
 export const siteMetadata: SiteMetadata = {
   name: "Portfolio of Brijeshkumar Yadav",
   title: "Brijeshkumar Yadav",
-  description: "Brijeshkumar Yadav – Frontend Engineer | React, Next.js & TypeScript",
+  description:
+    "Brijeshkumar Yadav – Frontend Engineer | React, Next.js & TypeScript",
   baseUrl: createBaseUrl(),
-};
+}
 
 export const aboutMe: AboutMe = {
   name: "Brijeshkumar Yadav",
   bio: "I'm a freelance frontend engineer based in India. I build fast, pixel-perfect web apps and care deeply about **performance**, **clean code**, and **great user experience**. Outside client work, building open source **AI Interview** platform.",
   role: "Frontend Engineer",
   email: "brijeshkumaryadav2026@gmail.com",
-};
+}
 
 export const skills: Skill[] = [
   { name: "Next.js", url: "https://nextjs.org" },
@@ -31,7 +39,7 @@ export const skills: Skill[] = [
   { name: "Git", url: "https://git-scm.com" },
   { name: "Docker", url: "https://www.docker.com" },
   { name: "Claude", url: "https://claude.ai" },
-];
+]
 
 export const workExperience: WorkExperience[] = [
   {
@@ -52,20 +60,28 @@ export const workExperience: WorkExperience[] = [
     period: "May 2021 - Feb 2022",
     current: false,
   },
-];
+]
 
 export const projects: Project[] = [
   {
     title: "AI Interview",
     description:
       "Open-source AI voice interview platform. Paste a job description, send candidates a link, and get back a full scorecard automatically.",
-    techStack: ["Next.js", "Tailwind CSS", "shadcn/ui", "better-auth", "AI", "Voice AI"],
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "better-auth",
+      "AI",
+      "Voice AI",
+    ],
     githubUrl: "https://github.com/brijeshmarch16/ai-interview",
     liveUrl: "https://ai-interview.brijeshkumaryadav.com",
   },
   {
     title: "ReactUseKit",
-    description: "React Hooks & Helpers Collection — copy, paste, or install with the shadcn CLI.",
+    description:
+      "React Hooks & Helpers Collection — copy, paste, or install with the shadcn CLI.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     githubUrl: "https://github.com/brijeshmarch16/reactusekit",
     liveUrl: "https://reactusekit.vercel.app",
@@ -76,10 +92,10 @@ export const projects: Project[] = [
   //   techStack: ["React", "TypeScript", "Recharts", "Tailwind CSS"],
   //   imageUrl: "/projects/demo-dashboard.svg",
   // },
-];
+]
 
 export const socialMedia: SocialMedia[] = [
   { label: "GitHub", href: "https://github.com/brijeshmarch16" },
   { label: "LinkedIn", href: "https://linkedin.com/in/brijeshmarch16" },
   { label: "X / Twitter", href: "https://x.com/brijeshmarch" },
-];
+]

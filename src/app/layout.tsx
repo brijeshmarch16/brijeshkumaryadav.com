@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { siteMetadata } from "@/lib/data";
-import { createCanonical, createMetadata } from "@/lib/metadata";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next"
+import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
+import { JetBrains_Mono } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
+import { siteMetadata } from "@/lib/data"
+import { createCanonical, createMetadata } from "@/lib/metadata"
+import { cn } from "@/lib/utils"
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+})
 
 export async function generateMetadata(): Promise<Metadata> {
-  const canonicalUrl = createCanonical("/");
+  const canonicalUrl = createCanonical("/")
 
   return createMetadata({
     title: siteMetadata.title,
@@ -19,14 +22,25 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      images: [{ url: `${siteMetadata.baseUrl}og.png`, width: 1200, height: 630, alt: siteMetadata.title }],
+      images: [
+        {
+          url: `${siteMetadata.baseUrl}og.png`,
+          width: 1200,
+          height: 630,
+          alt: siteMetadata.title,
+        },
+      ],
     },
-  });
+  })
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-mono", jetbrainsMono.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-mono", jetbrainsMono.variable)}
+    >
       <body>
         <ThemeProvider
           attribute="class"
@@ -39,5 +53,5 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Analytics />
       </body>
     </html>
-  );
+  )
 }
