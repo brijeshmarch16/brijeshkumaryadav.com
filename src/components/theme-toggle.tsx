@@ -8,7 +8,11 @@ import { Button } from "@/components/ui/button"
 const emptySubscribe = () => () => {}
 
 function useMounted() {
-  return useSyncExternalStore(emptySubscribe, () => true, () => false)
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  )
 }
 
 export function ThemeToggle() {

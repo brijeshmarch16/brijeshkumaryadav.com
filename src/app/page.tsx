@@ -9,7 +9,8 @@ import {
   socialMedia,
   workExperience,
 } from "@/lib/data"
-import { parseBold } from "@/lib/utils"
+import { parseBold } from "@/lib/parse-bold"
+import { Badge } from "@/components/ui/badge"
 
 export default function Home() {
   return (
@@ -42,15 +43,11 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap gap-2">
           {skills.map(({ name, url }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs text-foreground transition-colors hover:bg-accent"
-            >
-              {name}
-            </a>
+            <Badge asChild key={name} variant="secondary">
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                {name}
+              </a>
+            </Badge>
           ))}
         </div>
       </section>
