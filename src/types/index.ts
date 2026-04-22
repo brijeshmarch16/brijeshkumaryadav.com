@@ -9,8 +9,9 @@ export interface AboutMe {
   name: string
   bio: string
   role: string
-  email: string
 }
+
+export type SocialIcon = "github" | "linkedin" | "twitter"
 
 export interface WorkExperience {
   title: string
@@ -32,9 +33,5 @@ export interface Project {
 export interface SocialMedia {
   label: string
   href: string
-}
-
-export interface Skill {
-  name: string
-  url: string
+  icon: SocialIcon
 }

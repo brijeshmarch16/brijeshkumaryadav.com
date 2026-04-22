@@ -1,129 +1,139 @@
-import { ArrowUpRightIcon } from "lucide-react"
 import { ProjectItem } from "@/components/project-item"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import {
-  aboutMe,
-  projects,
-  skills,
-  socialMedia,
-  workExperience,
-} from "@/lib/data"
-import { parseBold } from "@/lib/parse-bold"
 import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { GithubDark } from "@/components/ui/svgs/githubDark"
+import { GithubLight } from "@/components/ui/svgs/githubLight"
+import { Linkedin } from "@/components/ui/svgs/linkedin"
+import { aboutMe, projects, socialMedia, workExperience } from "@/lib/data"
+import type { SocialIcon } from "@/types"
+import { X } from "@/components/ui/svgs/x"
+import { XDark } from "@/components/ui/svgs/xDark"
+
+function SocialIconGraphic({ icon }: { icon: SocialIcon }) {
+  switch (icon) {
+    case "github":
+      return (
+        <>
+          <GithubLight
+            data-icon="inline-start"
+            className="size-4 dark:hidden"
+          />
+          <GithubDark
+            data-icon="inline-start"
+            className="hidden size-4 dark:block"
+          />
+        </>
+      )
+    case "linkedin":
+      return <Linkedin data-icon="inline-start" className="size-4" />
+    case "twitter":
+      return (
+        <>
+          <X data-icon="inline-start" className="size-3.5 dark:hidden" />
+          <XDark
+            data-icon="inline-start"
+            className="hidden size-3.5 dark:block"
+          />
+        </>
+      )
+  }
+}
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl space-y-10 px-4 py-20">
-      {/* Name + role */}
-      <header className="space-y-1">
-        <h1 className="text-base leading-tight font-bold">{aboutMe.name}</h1>
-        <p className="text-sm text-muted-foreground">{aboutMe.role}</p>
+    <main className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+      <header className="flex flex-col gap-8">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-base">{aboutMe.name}</h1>
+            <p className="text-sm text-muted-foreground">{aboutMe.role}</p>
+          </div>
+          <div className="flex items-center gap-1">
+            {socialMedia.map(({ label, href, icon }) => (
+              <Button
+                key={label}
+                variant="ghost"
+                size="icon-sm"
+                asChild
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                >
+                  <SocialIconGraphic icon={icon} />
+                  <span className="sr-only">{label}</span>
+                </a>
+              </Button>
+            ))}
+            <ThemeToggle />
+          </div>
+        </div>
+
+        <p className="text-sm leading-6 text-muted-foreground">{aboutMe.bio}</p>
       </header>
 
-      {/* Bio */}
-      <section className="space-y-3">
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {parseBold(aboutMe.bio).map((part) =>
-            part.bold ? (
-              <span key={part.text} className="font-medium text-foreground">
-                {part.text}
-              </span>
-            ) : (
-              part.text
-            )
-          )}
+      <section className="flex flex-col gap-4 pt-8">
+        <p className="text-sm font-medium text-muted-foreground uppercase">
+          Projects
         </p>
-      </section>
-
-      {/* Skills */}
-      <section>
-        <p className="mb-4 text-xs font-medium tracking-widest text-muted-foreground uppercase">
-          Skills
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {skills.map(({ name, url }) => (
-            <Badge asChild key={name} variant="secondary">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {name}
-              </a>
-            </Badge>
+        <div className="flex flex-col gap-4">
+          {projects.map((project) => (
+            <ProjectItem key={project.title} project={project} />
           ))}
         </div>
       </section>
 
-      {/* Projects */}
-      <section>
-        <p className="mb-4 text-xs font-medium tracking-widest text-muted-foreground uppercase">
-          Projects
-        </p>
-        <ul className="list-disc space-y-4 pl-5">
-          {projects.map((project) => (
-            <ProjectItem key={project.title} project={project} />
-          ))}
-        </ul>
-      </section>
-
-      {/* Experience */}
-      <section>
-        <p className="mb-4 text-xs font-medium tracking-widest text-muted-foreground uppercase">
+      <section className="flex flex-col gap-4 pt-8">
+        <p className="text-sm font-medium text-muted-foreground uppercase">
           Experience
         </p>
-        <ul className="space-y-4">
+        <ul className="flex flex-col gap-3 sm:gap-4">
           {workExperience.map((job) => (
-            <li
-              key={`${job.company}-${job.period}`}
-              className="flex items-start justify-between gap-4"
-            >
-              <div className="space-y-0.5">
-                <p className="text-sm font-medium">{job.title}</p>
-                <p className="text-sm text-muted-foreground">{job.company}</p>
-              </div>
-              <div className="shrink-0 text-right">
-                <p className="text-xs text-muted-foreground">{job.period}</p>
-                {job.current && (
-                  <span className="text-xs font-medium text-foreground">
-                    Current
-                  </span>
-                )}
-              </div>
+            <li key={`${job.company}-${job.period}`}>
+              <Card size="sm">
+                <CardHeader>
+                  <CardTitle>{job.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{job.company}</p>
+                  <div className="row-span-2 row-start-1 flex items-center justify-between gap-3 sm:col-start-2 sm:flex-col sm:items-end">
+                    <CardDescription className="uppercase">
+                      {job.period}
+                    </CardDescription>
+                    {job.current ? (
+                      <Badge variant="secondary">Current</Badge>
+                    ) : null}
+                  </div>
+                </CardHeader>
+              </Card>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Connect */}
-      <section>
-        <p className="mb-4 text-xs font-medium tracking-widest text-muted-foreground uppercase">
-          Connect
+      <footer className="mt-8 gap-3 border-t pt-4 text-xs text-muted-foreground">
+        <p className="text-muted-foreground">
+          Built with care by {aboutMe.name}. Source code available on{" "}
+          <Button variant="link" asChild className="h-auto px-0 text-xs">
+            <a
+              href="https://github.com/brijeshmarch16/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </Button>
+          .
         </p>
-        <p className="mb-4 text-sm text-muted-foreground">
-          Feel free to reach me at{" "}
-          <a
-            href={`mailto:${aboutMe.email}`}
-            className="font-medium text-foreground underline underline-offset-2 transition-colors hover:text-muted-foreground"
-          >
-            {aboutMe.email}
-          </a>
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {socialMedia.map(({ label, href }) => (
-            <Button key={label} size="sm" variant="outline" asChild>
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                {label}
-                <ArrowUpRightIcon size={12} />
-              </a>
-            </Button>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer — theme toggle */}
-      <footer className="flex items-center justify-between border-t border-border pt-4">
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {aboutMe.name}. All rights reserved.
-        </p>
-        <ThemeToggle />
       </footer>
     </main>
   )

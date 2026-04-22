@@ -2,7 +2,6 @@ import type {
   AboutMe,
   Project,
   SiteMetadata,
-  Skill,
   SocialMedia,
   WorkExperience,
 } from "@/types"
@@ -23,23 +22,9 @@ export const siteMetadata: SiteMetadata = {
 
 export const aboutMe: AboutMe = {
   name: "Brijeshkumar Yadav",
-  bio: "I'm a freelance frontend engineer based in India. I build fast, pixel-perfect web apps and care deeply about **performance**, **clean code**, and **great user experience**. Outside client work, building open source **AI Interview** platform.",
+  bio: "I'm a freelance frontend engineer based in India. I build fast, pixel-perfect web apps and care deeply about performance, clean code, and thoughtful user experience. Outside client work, I'm building an open-source projects.",
   role: "Frontend Engineer",
-  email: "brijeshkumaryadav2026@gmail.com",
 }
-
-export const skills: Skill[] = [
-  { name: "Next.js", url: "https://nextjs.org" },
-  { name: "React.js", url: "https://react.dev" },
-  { name: "TypeScript", url: "https://www.typescriptlang.org" },
-  { name: "Tailwind CSS", url: "https://tailwindcss.com" },
-  { name: "shadcn/ui", url: "https://ui.shadcn.com" },
-  { name: "Zustand", url: "https://zustand.docs.pmnd.rs" },
-  { name: "TanStack Query", url: "https://tanstack.com/query" },
-  { name: "Git", url: "https://git-scm.com" },
-  { name: "Docker", url: "https://www.docker.com" },
-  { name: "Claude", url: "https://claude.ai" },
-]
 
 export const workExperience: WorkExperience[] = [
   {
@@ -69,11 +54,14 @@ export const projects: Project[] = [
       "Open-source AI voice interview platform. Paste a job description, send candidates a link, and get back a full scorecard automatically.",
     techStack: [
       "Next.js",
+      "TypeScript",
       "Tailwind CSS",
       "shadcn/ui",
       "better-auth",
-      "AI",
-      "Voice AI",
+      "ChatGPT AI",
+      "Retell AI",
+      "Drizzle",
+      "PostgreSQL",
     ],
     githubUrl: "https://github.com/brijeshmarch16/ai-interview",
     liveUrl: "https://ai-interview.brijeshkumaryadav.com",
@@ -82,7 +70,13 @@ export const projects: Project[] = [
     title: "ReactUseKit",
     description:
       "React Hooks & Helpers Collection — copy, paste, or install with the shadcn CLI.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "fumadocs",
+      "shadcn CLI",
+    ],
     githubUrl: "https://github.com/brijeshmarch16/reactusekit",
     liveUrl: "https://reactusekit.vercel.app",
   },
@@ -95,7 +89,19 @@ export const projects: Project[] = [
 ]
 
 export const socialMedia: SocialMedia[] = [
-  { label: "GitHub", href: "https://github.com/brijeshmarch16" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/brijeshmarch16" },
-  { label: "X / Twitter", href: "https://x.com/brijeshmarch" },
+  {
+    label: "GitHub",
+    href: "https://github.com/brijeshmarch16",
+    icon: "github",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/brijeshmarch16",
+    icon: "linkedin",
+  },
+  {
+    label: "X / Twitter",
+    href: "https://x.com/brijeshmarch",
+    icon: "twitter",
+  },
 ]

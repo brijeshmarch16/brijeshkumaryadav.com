@@ -1,55 +1,92 @@
-"use client"
-
-import Image from "next/image"
+import dynamic from "next/dynamic"
+import { ArrowUpRightIcon } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import type { Project } from "@/types"
 
-export function ProjectItem({ project }: { project: Project }) {
-  const title = project.liveUrl ? (
-    <a
-      href={project.liveUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm font-medium underline underline-offset-2"
-    >
-      {project.title}
-    </a>
-  ) : project.imageUrl ? (
-    <Dialog>
-      <DialogTrigger className="cursor-pointer text-sm font-medium underline underline-offset-2">
-        {project.title}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-3xl">
-        <DialogHeader>
-          <DialogTitle>{project.title}</DialogTitle>
-        </DialogHeader>
-        <div className="relative aspect-video w-full">
-          <Image
-            src={project.imageUrl}
-            alt={`${project.title} screenshot`}
-            fill
-            className="object-contain"
-          />
-        </div>
-      </DialogContent>
-    </Dialog>
-  ) : (
-    <span className="text-sm font-medium">{project.title}</span>
-  )
+type PreviewProject = Project & { imageUrl: string }
 
-  return (
-    <li>
-      {title}
-      <small className="text-sm text-muted-foreground">
-        {" "}
-        — {project.description}
-      </small>
-    </li>
+const ProjectPreviewCard = dynamic<{ project: PreviewProject }>(() =>
+  import("@/components/project-preview-card").then(
+    (mod) => mod.ProjectPreviewCard
   )
+)
+
+function ProjectTechStack({ techStack }: Pick<Project, "techStack">) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {techStack.map((skill) => (
+        <Badge key={skill} variant="secondary" className="h-6">
+          {skill}
+        </Badge>
+      ))}
+    </div>
+  )
+}
+
+function SimpleProjectItem({ project }: { project: Project }) {
+  return (
+    <article>
+      <Card>
+        <CardHeader>
+          <CardTitle>{project.title}</CardTitle>
+          <CardDescription>{project.description}</CardDescription>
+        </CardHeader>
+
+        <CardContent className="flex flex-col gap-4">
+          <ProjectTechStack techStack={project.techStack} />
+
+          {(project.liveUrl || project.githubUrl) && (
+            <div className="flex flex-wrap items-center gap-2">
+              {project.liveUrl && (
+                <Button asChild>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live
+                    <ArrowUpRightIcon data-icon="inline-end" />
+                  </a>
+                </Button>
+              )}
+
+              {project.githubUrl && (
+                <Button variant="outline" asChild>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                    <ArrowUpRightIcon data-icon="inline-end" />
+                  </a>
+                </Button>
+              )}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </article>
+  )
+}
+
+export function ProjectItem({ project }: { project: Project }) {
+  if (!project.liveUrl && project.imageUrl) {
+    const previewProject: PreviewProject = {
+      ...project,
+      imageUrl: project.imageUrl,
+    }
+
+    return <ProjectPreviewCard project={previewProject} />
+  }
+
+  return <SimpleProjectItem project={project} />
 }

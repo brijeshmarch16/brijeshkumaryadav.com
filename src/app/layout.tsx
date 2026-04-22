@@ -1,11 +1,16 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
-import { JetBrains_Mono } from "next/font/google"
+import { Geist, JetBrains_Mono } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { siteMetadata } from "@/lib/data"
 import { createCanonical, createMetadata } from "@/lib/metadata"
 import { cn } from "@/lib/utils"
+
+const fontSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -39,7 +44,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("font-mono", jetbrainsMono.variable)}
+      className={cn(
+        "antialiased font-mono",
+        fontSans.variable,
+        jetbrainsMono.variable
+      )}
     >
       <body>
         <ThemeProvider

@@ -18,21 +18,18 @@ function useMounted() {
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   const mounted = useMounted()
+  const nextTheme = mounted && resolvedTheme === "dark" ? "light" : "dark"
 
   return (
     <Button
-      size="sm"
+      type="button"
       variant="ghost"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      aria-label="Toggle theme"
+      size="icon-sm"
+      onClick={() => setTheme(nextTheme)}
+      aria-label={`Switch to ${nextTheme} theme`}
     >
-      <SunIcon size={14} className="dark:hidden" />
-      <MoonIcon size={14} className="hidden dark:block" />
-      {mounted && (
-        <span className="ml-1.5 text-xs">
-          {resolvedTheme === "dark" ? "Light" : "Dark"}
-        </span>
-      )}
+      <SunIcon data-icon="inline-start" className="dark:hidden" />
+      <MoonIcon data-icon="inline-start" className="hidden dark:block" />
     </Button>
   )
 }
