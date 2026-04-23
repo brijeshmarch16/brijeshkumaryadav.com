@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { ClaudeAiIcon } from "@/components/ui/svgs/claudeAiIcon"
 import { Docker } from "@/components/ui/svgs/docker"

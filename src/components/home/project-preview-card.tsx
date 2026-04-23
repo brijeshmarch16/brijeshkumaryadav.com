@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { ArrowUpRightIcon, ImageIcon } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { ProjectTechStack } from "@/components/home/project-tech-stack"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -22,18 +22,6 @@ import {
 import type { Project } from "@/types"
 
 type PreviewProject = Project & { imageUrl: string }
-
-function ProjectTechStack({ techStack }: Pick<Project, "techStack">) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {techStack.map((skill) => (
-        <Badge key={skill} variant="secondary" className="h-6">
-          {skill}
-        </Badge>
-      ))}
-    </div>
-  )
-}
 
 export function ProjectPreviewCard({ project }: { project: PreviewProject }) {
   return (
