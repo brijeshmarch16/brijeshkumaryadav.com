@@ -1,4 +1,4 @@
-# Portfolio &middot; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/brijeshmarch16/portfolio.svg?label=views&style=flat&label-color=%23555&color=%234c1)
+# Portfolio &middot; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/brijeshmarch16/brijeshkumaryadav.com.svg?label=views&style=flat&label-color=%23555&color=%234c1)
 
 A minimal portfolio website built to showcase my work.
 
