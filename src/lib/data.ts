@@ -3,6 +3,7 @@ import type {
   Project,
   SiteMetadata,
   SocialMedia,
+  TechStackItem,
   WorkExperience,
 } from "@/types"
 
@@ -86,6 +87,69 @@ export const projects: Project[] = [
   //   techStack: ["React", "TypeScript", "Recharts", "Tailwind CSS"],
   //   imageUrl: "/projects/demo-dashboard.svg",
   // },
+]
+
+export const techStack: TechStackItem[] = [
+  {
+    label: "Next.js",
+    href: "https://nextjs.org/",
+    icon: "nextjs",
+  },
+  {
+    label: "React.js",
+    href: "https://react.dev/",
+    icon: "react",
+  },
+  {
+    label: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    icon: "typescript",
+  },
+  {
+    label: "JavaScript",
+    href: "https://developer.mozilla.org/docs/Web/JavaScript",
+    icon: "javascript",
+  },
+  {
+    label: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
+    icon: "tailwind",
+  },
+  {
+    label: "shadcn/ui",
+    href: "https://ui.shadcn.com/",
+    icon: "shadcn",
+  },
+  {
+    label: "TanStack Query",
+    href: "https://tanstack.com/query/latest",
+    icon: "tanstack-query",
+  },
+  {
+    label: "Git",
+    href: "https://git-scm.com/",
+    icon: "git",
+  },
+  {
+    label: "Node.js",
+    href: "https://nodejs.org/",
+    icon: "nodejs",
+  },
+  {
+    label: "Docker",
+    href: "https://www.docker.com/",
+    icon: "docker",
+  },
+  {
+    label: "ChatGPT",
+    href: "https://chatgpt.com/",
+    icon: "chatgpt",
+  },
+  {
+    label: "Claude",
+    href: "https://claude.ai/",
+    icon: "claude",
+  },
 ]
 
 export const socialMedia: SocialMedia[] = [

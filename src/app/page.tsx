@@ -1,4 +1,5 @@
 import { ProjectItem } from "@/components/project-item"
+import { TechStackSection } from "@/components/tech-stack-section"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -11,10 +12,16 @@ import {
 import { GithubDark } from "@/components/ui/svgs/githubDark"
 import { GithubLight } from "@/components/ui/svgs/githubLight"
 import { Linkedin } from "@/components/ui/svgs/linkedin"
-import { aboutMe, projects, socialMedia, workExperience } from "@/lib/data"
-import type { SocialIcon } from "@/types"
 import { X } from "@/components/ui/svgs/x"
 import { XDark } from "@/components/ui/svgs/xDark"
+import {
+  aboutMe,
+  projects,
+  socialMedia,
+  techStack,
+  workExperience,
+} from "@/lib/data"
+import type { SocialIcon } from "@/types"
 
 function SocialIconGraphic({ icon }: { icon: SocialIcon }) {
   switch (icon) {
@@ -93,6 +100,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <TechStackSection items={techStack} />
 
       <section className="flex flex-col gap-4 pt-8">
         <p className="text-sm font-medium text-muted-foreground uppercase">

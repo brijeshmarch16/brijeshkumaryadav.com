@@ -13,6 +13,20 @@ export interface AboutMe {
 
 export type SocialIcon = "github" | "linkedin" | "twitter"
 
+export type TechStackIcon =
+  | "nextjs"
+  | "react"
+  | "typescript"
+  | "javascript"
+  | "tailwind"
+  | "shadcn"
+  | "tanstack-query"
+  | "git"
+  | "nodejs"
+  | "docker"
+  | "chatgpt"
+  | "claude"
+
 export interface WorkExperience {
   title: string
   company: string
@@ -34,4 +48,10 @@ export interface SocialMedia {
   label: string
   href: string
   icon: SocialIcon
+}
+
+export interface TechStackItem {
+  label: string
+  href: string
+  icon: TechStackIcon
 }

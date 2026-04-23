@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "antialiased font-mono",
+        "font-mono antialiased",
         fontSans.variable,
         jetbrainsMono.variable
       )}
