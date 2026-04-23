@@ -1,17 +1,9 @@
 # Portfolio &middot; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/brijeshmarch16/portfolio.svg?label=views&style=flat&label-color=%23555&color=%234c1)
 
-A minimal portfolio built with Next.js, React, TypeScript, Tailwind CSS and shadcn/ui.
+A minimal portfolio website built to showcase my work.
 
 ![Portfolio Preview – Dark](.github/screenshot-dark.png#gh-dark-mode-only)
 ![Portfolio Preview – Light](.github/screenshot-light.png#gh-light-mode-only)
-
-## Features
-
-- Minimal single-page layout
-- Projects and experience sections
-- Light and dark mode
-- Responsive design
-- SEO metadata and analytics
 
 ## Tech Stack
 
