@@ -7,7 +7,7 @@ export function SiteFooter({ name }: { name: string }) {
         Built with care by {name}. Source code available on{" "}
         <Button variant="link" asChild className="h-auto px-0 text-xs">
           <a
-            href="https://github.com/brijeshmarch16/portfolio"
+            href="https://github.com/brijeshmarch16/brijeshkumaryadav.com"
             target="_blank"
             rel="noopener noreferrer"
           >
