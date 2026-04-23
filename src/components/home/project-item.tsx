@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic"
 import { ArrowUpRightIcon } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { ProjectTechStack } from "@/components/home/project-tech-stack"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -14,22 +14,10 @@ import type { Project } from "@/types"
 type PreviewProject = Project & { imageUrl: string }
 
 const ProjectPreviewCard = dynamic<{ project: PreviewProject }>(() =>
-  import("@/components/project-preview-card").then(
+  import("@/components/home/project-preview-card").then(
     (mod) => mod.ProjectPreviewCard
   )
 )
-
-function ProjectTechStack({ techStack }: Pick<Project, "techStack">) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {techStack.map((skill) => (
-        <Badge key={skill} variant="secondary" className="h-6">
-          {skill}
-        </Badge>
-      ))}
-    </div>
-  )
-}
 
 function SimpleProjectItem({ project }: { project: Project }) {
   return (
