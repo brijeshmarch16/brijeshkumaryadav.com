@@ -49,6 +49,15 @@
 }
 
 :root {
+  --sh-class: oklch(0.371 0 0);
+  --sh-identifier: oklch(0.145 0 0);
+  --sh-sign: oklch(0.556 0 0);
+  --sh-string: oklch(0.439 0 0);
+  --sh-keyword: oklch(0.269 0 0);
+  --sh-comment: oklch(0.556 0 0);
+  --sh-jsxliterals: oklch(0.371 0 0);
+  --sh-property: oklch(0.269 0 0);
+  --sh-entity: oklch(0.269 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -84,6 +93,15 @@
 }
 
 .dark {
+  --sh-class: oklch(0.87 0 0);
+  --sh-identifier: oklch(0.985 0 0);
+  --sh-sign: oklch(0.708 0 0);
+  --sh-string: oklch(0.87 0 0);
+  --sh-keyword: oklch(0.922 0 0);
+  --sh-comment: oklch(0.708 0 0);
+  --sh-jsxliterals: oklch(0.87 0 0);
+  --sh-property: oklch(0.922 0 0);
+  --sh-entity: oklch(0.922 0 0);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -126,5 +144,64 @@
   }
   html {
     @apply font-mono;
+  }
+}
+
+@layer components {
+  .mdx-content {
+    @apply text-sm/relaxed text-muted-foreground;
+  }
+
+  .mdx-content h1 {
+    @apply mb-4 font-heading text-sm font-medium tracking-tight text-foreground;
+  }
+
+  .mdx-content h2 {
+    @apply relative mt-10 mb-3 font-heading text-sm font-medium tracking-tight text-foreground;
+  }
+
+  .mdx-content h3 {
+    @apply relative mt-8 mb-3 font-heading text-sm font-medium text-foreground;
+  }
+
+  .mdx-content h4 {
+    @apply relative mt-6 mb-2 font-heading text-xs font-medium text-foreground;
+  }
+
+  .mdx-content p {
+    @apply my-5;
+  }
+
+  .mdx-content ul,
+  .mdx-content ol {
+    @apply my-5 space-y-2 pl-5;
+  }
+
+  .mdx-content ul {
+    @apply list-disc;
+  }
+
+  .mdx-content ol {
+    @apply list-decimal;
+  }
+
+  .mdx-content a {
+    @apply text-foreground underline underline-offset-4;
+  }
+
+  .mdx-content :not(pre) > code {
+    @apply rounded-sm bg-muted px-1.5 py-0.5 text-xs text-foreground;
+  }
+
+  .mdx-content pre {
+    @apply my-6 overflow-x-auto rounded-none border border-border/70 bg-muted/40 p-4 text-xs/relaxed;
+  }
+
+  .mdx-content pre code {
+    @apply grid min-w-full;
+  }
+
+  .mdx-content pre::-webkit-scrollbar {
+    @apply hidden;
   }
 }
