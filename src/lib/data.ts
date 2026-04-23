@@ -10,14 +10,14 @@ import type {
 function createBaseUrl(): URL {
   return process.env.NODE_ENV === "development"
     ? new URL("http://localhost:3000")
-    : new URL("https://brijeshkumaryadav.com/")
+    : new URL("https://brijeshkumaryadav.com")
 }
 
 export const siteMetadata: SiteMetadata = {
-  name: "Portfolio of Brijeshkumar Yadav",
-  title: "Brijeshkumar Yadav",
+  name: "brijeshkumaryadav",
+  title: "Brijeshkumar Yadav - Frontend Engineer",
   description:
-    "Brijeshkumar Yadav – Frontend Engineer | React, Next.js & TypeScript",
+    "I build fast, pixel-perfect web apps with React, Next.js, and TypeScript.",
   baseUrl: createBaseUrl(),
 }
 
