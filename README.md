@@ -11,7 +11,7 @@ A minimal, pixel-perfect portfolio and blog showcasing my work as a Frontend Eng
 - Blog powered by MDX
 - Light and dark mode
 - SEO optimized with sitemap and robots.txt
-- - Analytics with Vercel
+- Analytics with Vercel
 
 ## Tech Stack
 
