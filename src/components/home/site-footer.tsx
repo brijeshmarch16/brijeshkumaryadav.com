@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button"
 
 export function SiteFooter({ name }: { name: string }) {
   return (
-    <footer className="mt-8 gap-3 border-t pt-4 text-xs text-muted-foreground">
-      <p className="text-muted-foreground">
-        Built with care by {name}. Source code available on{" "}
+    <footer className="mt-8 flex flex-col gap-3 border-t pt-4 text-xs/relaxed text-muted-foreground">
+      <p>
+        Designed and built by {name}. Source code on{" "}
         <Button variant="link" asChild className="h-auto px-0 text-xs">
           <a
             href="https://github.com/brijeshmarch16/brijeshkumaryadav.com"

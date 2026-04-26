@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
       <IntroSection aboutMe={aboutMe} socialMedia={socialMedia} />
-      <ProjectsSection projects={projects} />
       <TechStackSection items={techStack} />
       <ExperienceSection workExperience={workExperience} />
       <BlogSection posts={blogPosts} />
+      <ProjectsSection projects={projects} />
       <SiteFooter name={aboutMe.name} />
     </main>
   )

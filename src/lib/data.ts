@@ -23,7 +23,7 @@ export const siteMetadata: SiteMetadata = {
 
 export const aboutMe: AboutMe = {
   name: "Brijeshkumar Yadav",
-  bio: "I'm a freelance frontend engineer based in India. I build fast, pixel-perfect web apps and care deeply about performance, clean code, and thoughtful user experience. Outside client work, I'm building an open-source projects.",
+  bio: "I'm a freelance frontend engineer based in India. I build fast, pixel-perfect web apps and care deeply about performance, clean code, and thoughtful user experience. Outside client work, I'm building open-source projects.",
   role: "Frontend Engineer",
 }
 
@@ -153,6 +153,11 @@ export const techStack: TechStackItem[] = [
 ]
 
 export const socialMedia: SocialMedia[] = [
+  {
+    label: "Email",
+    href: "mailto:brijeshkumaryadav2026@gmail.com",
+    icon: "email",
+  },
   {
     label: "GitHub",
     href: "https://github.com/brijeshmarch16",

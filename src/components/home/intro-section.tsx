@@ -1,5 +1,6 @@
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
+import { MailIcon } from "lucide-react"
 import { GithubDark } from "@/components/ui/svgs/githubDark"
 import { GithubLight } from "@/components/ui/svgs/githubLight"
 import { Linkedin } from "@/components/ui/svgs/linkedin"
@@ -9,6 +10,8 @@ import type { AboutMe, SocialIcon, SocialMedia } from "@/types"
 
 function SocialIconGraphic({ icon }: { icon: SocialIcon }) {
   switch (icon) {
+    case "email":
+      return <MailIcon data-icon="inline-start" className="size-4.5" />
     case "github":
       return (
         <>

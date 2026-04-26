@@ -11,7 +11,7 @@ export interface AboutMe {
   role: string
 }
 
-export type SocialIcon = "github" | "linkedin" | "twitter"
+export type SocialIcon = "email" | "github" | "linkedin" | "twitter"
 
 export type TechStackIcon =
   | "nextjs"

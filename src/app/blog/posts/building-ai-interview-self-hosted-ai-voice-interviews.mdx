@@ -1,0 +1,54 @@
+---
+title: "Building AI Interview: Self-Hosted AI Voice Interviews"
+published: true
+publishedAt: "2026-04-26"
+summary: "Why I built AI Interview as a simple, open-source voice interview platform using Better Auth, PostgreSQL, and self-hosted deployment."
+readingTime: "2 min read"
+---
+
+I recently built **AI Interview**, an open-source AI voice interview platform.
+
+A while ago, I came across a project called **FoloUp** on GitHub.
+
+It had a great idea: AI voice interviews. A candidate gets a link, talks to an AI interviewer, and the recruiter gets a scorecard with feedback.
+
+The project had more than 1,000 stars, so I wanted to try running it myself.
+
+But when I looked at the setup, I saw that it depended on services like **Clerk** for authentication and **Supabase** for the database.
+
+There is nothing wrong with that. Those tools are great for many products.
+
+But I wanted something different.
+
+I wanted an AI interview platform that I could run in my own deployment, with my own database, and without signing up for separate auth or database services.
+
+So I built **AI Interview**.
+
+It follows the same basic idea, but with a self-hosted setup:
+
+- **Better Auth** instead of Clerk
+- **PostgreSQL** instead of Supabase
+- **Vercel or Docker** for deployment
+- **MIT license** so anyone can use, change, and self-host it
+
+The workflow is simple:
+
+1. Paste a job description or upload a PDF
+2. AI generates interview questions
+3. The candidate joins through a link
+4. The AI conducts the voice interview
+5. You get a scorecard with a full transcript
+
+Candidates do not need to create an account or install anything. They can open the link and complete the interview in their browser.
+
+AI Interview also includes custom interviewer personas, candidate tracking, tab-switch monitoring, and interview analytics.
+
+No external auth service.<br />
+No Supabase dependency.<br />
+No seat-based pricing.<br />
+Just your server, your database, and your hiring workflow.
+
+You still need to pay for the AI and voice APIs you use, like OpenAI and Retell AI. But the platform itself is self-hosted, so you are not locked into paid auth, database, or hiring software subscriptions.
+
+Product page: [https://ai-interview.brijeshkumaryadav.com](https://ai-interview.brijeshkumaryadav.com)<br />
+GitHub: [https://github.com/brijeshmarch16/ai-interview](https://github.com/brijeshmarch16/ai-interview)

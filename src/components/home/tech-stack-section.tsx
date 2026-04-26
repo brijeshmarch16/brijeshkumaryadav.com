@@ -19,44 +19,44 @@ import type { TechStackIcon, TechStackItem } from "@/types"
 function TechStackIconGraphic({ icon }: { icon: TechStackIcon }) {
   switch (icon) {
     case "nextjs":
-      return <NextjsIconDark aria-hidden className="size-5" />
+      return <NextjsIconDark aria-hidden className="size-4" />
     case "react":
       return (
         <>
-          <ReactLight aria-hidden className="size-5 dark:hidden" />
-          <ReactDark aria-hidden className="hidden size-5 dark:block" />
+          <ReactLight aria-hidden className="size-4 dark:hidden" />
+          <ReactDark aria-hidden className="hidden size-4 dark:block" />
         </>
       )
     case "typescript":
-      return <Typescript aria-hidden className="size-5" />
+      return <Typescript aria-hidden className="size-4" />
     case "javascript":
-      return <Javascript aria-hidden className="size-5" />
+      return <Javascript aria-hidden className="size-4" />
     case "tailwind":
-      return <Tailwindcss aria-hidden className="size-5" />
+      return <Tailwindcss aria-hidden className="size-4" />
     case "shadcn":
       return (
         <>
-          <ShadcnUi aria-hidden className="size-5 dark:hidden" />
-          <ShadcnUiDark aria-hidden className="hidden size-5 dark:block" />
+          <ShadcnUi aria-hidden className="size-4 dark:hidden" />
+          <ShadcnUiDark aria-hidden className="hidden size-4 dark:block" />
         </>
       )
     case "tanstack-query":
-      return <Reactquery aria-hidden className="size-5" />
+      return <Reactquery aria-hidden className="size-4" />
     case "git":
-      return <Git aria-hidden className="size-5" />
+      return <Git aria-hidden className="size-4" />
     case "nodejs":
-      return <Nodejs aria-hidden className="size-5" />
+      return <Nodejs aria-hidden className="size-4" />
     case "docker":
-      return <Docker aria-hidden className="size-5" />
+      return <Docker aria-hidden className="size-4" />
     case "chatgpt":
       return (
         <>
-          <Openai aria-hidden className="size-5 dark:hidden" />
-          <OpenaiDark aria-hidden className="hidden size-5 dark:block" />
+          <Openai aria-hidden className="size-4 dark:hidden" />
+          <OpenaiDark aria-hidden className="hidden size-4 dark:block" />
         </>
       )
     case "claude":
-      return <ClaudeAiIcon aria-hidden className="size-5" />
+      return <ClaudeAiIcon aria-hidden className="size-4" />
   }
 }
 

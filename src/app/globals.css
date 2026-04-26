@@ -186,7 +186,7 @@
   }
 
   .mdx-content a {
-    @apply text-foreground underline underline-offset-4;
+    @apply text-sm text-foreground underline underline-offset-4;
   }
 
   .mdx-content :not(pre) > code {
