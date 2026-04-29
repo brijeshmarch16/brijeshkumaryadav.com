@@ -10,14 +10,28 @@ A minimal, pixel-perfect portfolio and blog showcasing my work as a Frontend Eng
 - Minimal and pixel-perfect design
 - Blog powered by MDX
 - Light and dark mode
-- SEO optimized with sitemap and robots.txt
+- SEO optimized
 - Analytics with Vercel
 
 ## Tech Stack
 
 - Next.js 16
+- React.js 19
+- TypeScript
 - Tailwind CSS v4
 - shadcn/ui
+- next-mdx-remote
+- Vercel Analytics
+
+## Project Structure
+
+Short explanation of:
+
+- `src/lib/data.ts` = portfolio content
+- `src/lib/blog.ts` = blog loading/parsing
+- `src/lib/metadata.ts` = SEO helpers
+- `src/types/home.ts` and `src/types/blog.ts` = domain types
+- `src/app/blog/posts` = MDX blog posts
 
 ## Running the Project
 

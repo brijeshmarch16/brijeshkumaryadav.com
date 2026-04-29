@@ -2,7 +2,7 @@ export interface SiteMetadata {
   name: string
   title: string
   description: string
-  baseUrl: URL
+  url: string
 }
 
 export interface AboutMe {
@@ -34,15 +34,32 @@ export interface WorkExperience {
   current: boolean
 }
 
-export interface Project {
+interface ProjectCardBase {
   title: string
   description: string
   techStack: string[]
   githubUrl?: string
-  liveUrl?: string
-  /** Path to a screenshot/image, used when there is no public live URL */
-  imageUrl?: string
 }
+
+export type LiveProjectCard = ProjectCardBase & {
+  kind: "live"
+  liveUrl: string
+}
+
+export type PreviewProjectCard = ProjectCardBase & {
+  kind: "preview"
+  imageUrl: string
+}
+
+export type SourceProjectCard = ProjectCardBase & {
+  kind: "source"
+  githubUrl: string
+}
+
+export type ProjectCard =
+  | LiveProjectCard
+  | PreviewProjectCard
+  | SourceProjectCard
 
 export interface SocialMedia {
   label: string
@@ -54,4 +71,13 @@ export interface TechStackItem {
   label: string
   href: string
   icon: TechStackIcon
+}
+
+export interface Portfolio {
+  site: SiteMetadata
+  about: AboutMe
+  workExperience: WorkExperience[]
+  projects: ProjectCard[]
+  techStack: TechStackItem[]
+  socialMedia: SocialMedia[]
 }

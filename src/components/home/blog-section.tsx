@@ -8,9 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { formatPostDate, type BlogPost } from "@/lib/blog"
+import type { BlogPostSummary } from "@/types/blog"
 
-export function BlogSection({ posts }: { posts: BlogPost[] }) {
+export function BlogSection({ posts }: { posts: BlogPostSummary[] }) {
   if (posts.length === 0) {
     return null
   }
@@ -25,24 +25,24 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
         {posts.map((post) => (
           <article key={post.slug}>
             <Link
-              href={`/blog/${post.slug}` as Route}
+              href={post.href as Route}
               className="block focus-visible:outline-none"
             >
               <Card className="transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring">
                 <CardHeader>
-                  <CardTitle>{post.metadata.title}</CardTitle>
-                  <CardDescription>{post.metadata.summary}</CardDescription>
+                  <CardTitle>{post.title}</CardTitle>
+                  <CardDescription>{post.summary}</CardDescription>
                   <CardAction className="text-muted-foreground transition-colors group-hover/card:text-foreground">
                     <ArrowRightIcon className="size-4" aria-hidden="true" />
                   </CardAction>
                 </CardHeader>
 
                 <div className="px-4 text-xs text-muted-foreground">
-                  <time dateTime={post.metadata.publishedAt}>
-                    {formatPostDate(post.metadata.publishedAt)}
+                  <time dateTime={post.publishedAt}>
+                    {post.formattedPublishedAt}
                   </time>
                   <span aria-hidden="true"> / </span>
-                  <span>{post.metadata.readingTime}</span>
+                  <span>{post.readingTime}</span>
                 </div>
               </Card>
             </Link>

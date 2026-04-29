@@ -6,7 +6,7 @@ import { GithubLight } from "@/components/ui/svgs/githubLight"
 import { Linkedin } from "@/components/ui/svgs/linkedin"
 import { X } from "@/components/ui/svgs/x"
 import { XDark } from "@/components/ui/svgs/xDark"
-import type { AboutMe, SocialIcon, SocialMedia } from "@/types"
+import type { AboutMe, SocialIcon, SocialMedia } from "@/types/home"
 
 function SocialIconGraphic({ icon }: { icon: SocialIcon }) {
   switch (icon) {

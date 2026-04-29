@@ -9,17 +9,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import type { Project } from "@/types"
+import type {
+  LiveProjectCard,
+  PreviewProjectCard as PreviewProjectCardModel,
+  ProjectCard,
+  SourceProjectCard,
+} from "@/types/home"
 
-type PreviewProject = Project & { imageUrl: string }
-
-const ProjectPreviewCard = dynamic<{ project: PreviewProject }>(() =>
+const ProjectPreviewCard = dynamic<{ project: PreviewProjectCardModel }>(() =>
   import("@/components/home/project-preview-card").then(
     (mod) => mod.ProjectPreviewCard
   )
 )
 
-function SimpleProjectItem({ project }: { project: Project }) {
+function SimpleProjectItem({
+  project,
+}: {
+  project: LiveProjectCard | SourceProjectCard
+}) {
   return (
     <article>
       <Card>
@@ -31,50 +38,45 @@ function SimpleProjectItem({ project }: { project: Project }) {
         <CardContent className="flex flex-col gap-4">
           <ProjectTechStack techStack={project.techStack} />
 
-          {(project.liveUrl || project.githubUrl) && (
-            <div className="flex flex-wrap items-center gap-2">
-              {project.liveUrl && (
-                <Button asChild>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live
-                    <ArrowUpRightIcon data-icon="inline-end" />
-                  </a>
-                </Button>
-              )}
+          <div className="flex flex-wrap items-center gap-2">
+            {project.kind === "live" && (
+              <Button asChild>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live
+                  <ArrowUpRightIcon data-icon="inline-end" />
+                </a>
+              </Button>
+            )}
 
-              {project.githubUrl && (
-                <Button variant="outline" asChild>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                    <ArrowUpRightIcon data-icon="inline-end" />
-                  </a>
-                </Button>
-              )}
-            </div>
-          )}
+            {project.githubUrl && (
+              <Button variant="outline" asChild>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                  <ArrowUpRightIcon data-icon="inline-end" />
+                </a>
+              </Button>
+            )}
+          </div>
         </CardContent>
       </Card>
     </article>
   )
 }
 
-export function ProjectItem({ project }: { project: Project }) {
-  if (!project.liveUrl && project.imageUrl) {
-    const previewProject: PreviewProject = {
-      ...project,
-      imageUrl: project.imageUrl,
-    }
-
-    return <ProjectPreviewCard project={previewProject} />
+export function ProjectItem({ project }: { project: ProjectCard }) {
+  switch (project.kind) {
+    case "preview":
+      return <ProjectPreviewCard project={project} />
+    case "live":
+    case "source":
+      return <SimpleProjectItem project={project} />
   }
-
-  return <SimpleProjectItem project={project} />
 }

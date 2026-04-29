@@ -19,11 +19,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import type { Project } from "@/types"
+import type { PreviewProjectCard as PreviewProjectCardModel } from "@/types/home"
 
-type PreviewProject = Project & { imageUrl: string }
-
-export function ProjectPreviewCard({ project }: { project: PreviewProject }) {
+export function ProjectPreviewCard({
+  project,
+}: {
+  project: PreviewProjectCardModel
+}) {
   return (
     <Dialog>
       <article>

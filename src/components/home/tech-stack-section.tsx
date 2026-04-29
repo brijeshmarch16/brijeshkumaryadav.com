@@ -14,7 +14,7 @@ import { ShadcnUi } from "@/components/ui/svgs/shadcnUi"
 import { ShadcnUiDark } from "@/components/ui/svgs/shadcnUiDark"
 import { Tailwindcss } from "@/components/ui/svgs/tailwindcss"
 import { Typescript } from "@/components/ui/svgs/typescript"
-import type { TechStackIcon, TechStackItem } from "@/types"
+import type { TechStackIcon, TechStackItem } from "@/types/home"
 
 function TechStackIconGraphic({ icon }: { icon: TechStackIcon }) {
   switch (icon) {
@@ -60,7 +60,11 @@ function TechStackIconGraphic({ icon }: { icon: TechStackIcon }) {
   }
 }
 
-export function TechStackSection({ items }: { items: TechStackItem[] }) {
+export function TechStackSection({
+  items,
+}: {
+  items: TechStackItem[]
+}) {
   return (
     <section className="flex flex-col gap-4 pt-8">
       <p className="text-sm font-medium text-muted-foreground uppercase">

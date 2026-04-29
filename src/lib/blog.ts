@@ -1,20 +1,11 @@
 import fs from "fs"
 import path from "path"
-
-export type BlogPostMetadata = {
-  title: string
-  published: boolean
-  publishedAt: string
-  summary: string
-  readingTime: string
-  image?: string
-}
-
-export type BlogPost = {
-  slug: string
-  metadata: BlogPostMetadata
-  content: string
-}
+import type {
+  BlogPost,
+  BlogPostDetail,
+  BlogPostMetadata,
+  BlogPostSummary,
+} from "@/types/blog"
 
 const postsDirectory = path.join(process.cwd(), "src", "app", "blog", "posts")
 
@@ -87,7 +78,7 @@ function readPost(fileName: string): BlogPost {
   }
 }
 
-export function getBlogPosts(): BlogPost[] {
+function getPublishedPosts(): BlogPost[] {
   return getPostFiles()
     .map(readPost)
     .filter((post) => post.metadata.published)
@@ -98,11 +89,27 @@ export function getBlogPosts(): BlogPost[] {
     )
 }
 
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return getBlogPosts().find((post) => post.slug === slug)
+function toBlogPostSummary(post: BlogPost): BlogPostSummary {
+  return {
+    slug: post.slug,
+    href: `/blog/${post.slug}`,
+    title: post.metadata.title,
+    summary: post.metadata.summary,
+    publishedAt: post.metadata.publishedAt,
+    formattedPublishedAt: formatPostDate(post.metadata.publishedAt),
+    readingTime: post.metadata.readingTime,
+    image: post.metadata.image,
+  }
 }
 
-export function formatPostDate(date: string): string {
+function toBlogPostDetail(post: BlogPost): BlogPostDetail {
+  return {
+    ...toBlogPostSummary(post),
+    content: post.content,
+  }
+}
+
+function formatPostDate(date: string): string {
   const dateWithTime = date.includes("T") ? date : `${date}T00:00:00`
 
   return new Intl.DateTimeFormat("en", {
@@ -110,4 +117,20 @@ export function formatPostDate(date: string): string {
     day: "numeric",
     year: "numeric",
   }).format(new Date(dateWithTime))
+}
+
+export function getPublishedBlogSummaries(): BlogPostSummary[] {
+  return getPublishedPosts().map(toBlogPostSummary)
+}
+
+export function getPublishedBlogPost(slug: string): BlogPostDetail | undefined {
+  const post = getPublishedPosts().find((post) => post.slug === slug)
+
+  return post ? toBlogPostDetail(post) : undefined
+}
+
+export function getPublishedBlogStaticParams(): { slug: string }[] {
+  return getPublishedPosts().map((post) => ({
+    slug: post.slug,
+  }))
 }

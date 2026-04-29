@@ -1,7 +1,7 @@
 import { ProjectItem } from "@/components/home/project-item"
-import type { Project } from "@/types"
+import type { ProjectCard } from "@/types/home"
 
-export function ProjectsSection({ projects }: { projects: Project[] }) {
+export function ProjectsSection({ projects }: { projects: ProjectCard[] }) {
   return (
     <section className="flex flex-col gap-4 pt-8">
       <p className="text-sm font-medium text-muted-foreground uppercase">

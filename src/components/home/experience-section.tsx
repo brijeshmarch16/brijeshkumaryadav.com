@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import type { WorkExperience } from "@/types"
+import type { WorkExperience } from "@/types/home"
 
 export function ExperienceSection({
   workExperience,
